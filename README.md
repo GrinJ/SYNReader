@@ -5,7 +5,8 @@ SYNReader
 About
 =====
 
-Simple python class that allows to read and convert data from SYNOPMAK or SYNOPDOP files. Created with the support of Hydrometcentre of Russia.
+Simple python class that allows to read and convert data from SYNOPMAK or SYNOPDOP files.
+Created with the support of Hydrometcentre of Russia.
 
 **License**: GNU GPL version 3.
 
@@ -25,4 +26,5 @@ Usage
     To check the validity of all parameters passed in tuple for index num
 
 Or create a symbolic link
+
 `ls -s /projectsDir/SYNReader/src/SYNReader/SYNReader.py projectsDir/newProj/`
