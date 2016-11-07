@@ -23,3 +23,5 @@ Usage
 
 **isNull([values], num)**
     To check the validity of all parameters passed in tuple for index num
+
+Or create a symbolic link: ls -s /projectsDir/SYNReader/src/SYNReader/SYNReader.py projectsDir/newProj/
