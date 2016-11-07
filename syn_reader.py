@@ -1,11 +1,17 @@
 from collections import defaultdict
 import re
 
-#Simple reader
 class SYNReader:
 
-    #Constructor, filename - path and filname of SYNOPMAK or SYNOPDOP files
     def __init__(self, filename):
+        """
+        Allow to read files of meteorological observations (SYNOPMAK or SYNOPDOP).
+
+       To work with the class, specify the path to the data file
+
+        :param filename: path to the file
+        :type filename: basestring
+        """
 
         #Dictionary with keys
         self.keys = {0: "dist_num", 1: "st_num", 2: "lat", 3: "lon", 4: "heigth", 5: "PR", 6: "HH", 7: "Pz", 8: "P0", 9: "t",
@@ -54,8 +60,10 @@ class SYNReader:
         except IOError:
             self.noProblem = False
 
-    #Convert the input data
     def convertData(self):
+        """
+        Converts data values from the SYN specification to normal values
+        """
         for key, val in self.data.items():
             for num in range(0, self.data[key].__len__()):
                 if self.data[key][num] != -9999.0:
@@ -91,6 +99,17 @@ class SYNReader:
 
     #Check if values is or not empty
     def isNull(self, values, num):
+        """
+        Checks if value not equal to zero of the parameter from the station.
+
+        :param values: list of the keys
+        :type values: tuple
+        :param num: number in the list in range(0, counter)
+        :type num: int
+        :return: False if not empty
+        :rtype: bool
+        """
+
         #Local counter
         count = 0
 
