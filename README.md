@@ -15,7 +15,7 @@ Simple python class that allows to read and convert data from SYNOPMAK or SYNOPD
 Usage
 =====
 
-**SYNReader(filename)*
+**SYNReader(filename)**
     To create the object o the class
 
 **convertData()**
