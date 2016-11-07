@@ -1,7 +1,7 @@
-from syn_reader import SYNReader
+from src.SYNReader.SYNReader import SYNReader
 
 #Create object
-syn = SYNReader('data/SYN_2015081721.txt')
+syn = SYNReader('./examples/data/SYN_2015081721.txt')
 
 #Check if file was successfully opened and readed
 if syn.noProblem:
