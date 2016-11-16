@@ -27,4 +27,4 @@ Usage
 
 Or create a symbolic link
 
-`ls -s /projectsDir/SYNReader/src/SYNReader/SYNReader.py projectsDir/newProj/`
+`ln -s /projectsDir/SYNReader/src/SYNReader/SYNReader.py projectsDir/newProj/`
