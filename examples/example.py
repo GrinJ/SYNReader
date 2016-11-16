@@ -16,7 +16,7 @@ if syn.noProblem:
     for i in range(0, syn.counter):
         #Check the correct value of t and td parametrs
         if not syn.isNull(["t", "td"], i):
-            RH.append(100.0 - 5.0 * (syn.data["t"][i] - syn.data["td"][i]))
+            RH.append(100.0 - 5.0 * (syn["t"][i] - syn["td"][i]))
 
     #For example - print the output result
     print(RH)
