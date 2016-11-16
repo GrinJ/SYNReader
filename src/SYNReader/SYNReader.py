@@ -7,7 +7,7 @@ class SYNReader:
         """
         Allow to read files of meteorological observations (SYNOPMAK or SYNOPDOP).
 
-       To work with the class, specify the path to the data file
+        To work with the class, specify the path to the data file
 
         :param filename: path to the file
         :type filename: basestring
@@ -123,3 +123,7 @@ class SYNReader:
             return False
         else:
             return True
+
+    #Returns the array bt given key
+    def __getitem__(self, item):
+        return self.data[item]
