@@ -30,7 +30,6 @@ class SYNReader:
 
             #Create custom dict to save the data
             result = defaultdict(list)
-            #self.data = defaultdict(list)
             self.data = {}
             self.__tmp = defaultdict(list)
 
