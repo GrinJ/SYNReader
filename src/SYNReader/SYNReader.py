@@ -29,9 +29,11 @@ class SYNReader:
             values = file.read().split("\n")
 
             #Create custom dict to save the data
-            result = defaultdict(list)
             self.data = {}
-            self.__tmp = defaultdict(list)
+
+            #Create empty numpy arrays
+            for num, key in self.keys.items():
+                self.data[key] = numpy.array([])
 
             #For loop counter
             self.counter = 0
@@ -45,7 +47,7 @@ class SYNReader:
                     count = 0
                     for subkey in value:
                         if subkey != "":
-                            result[self.counter].append(float(subkey))
+                            self.data[self.keys[count]] = numpy.append(self.data[self.keys[count]], float(subkey))
                             count += 1
                     self.counter += 1
 
@@ -53,15 +55,6 @@ class SYNReader:
             if self.counter == 0:
                 self.noProblem = False
                 return
-
-            #Work with the data
-            for i in range(0, result.__len__()):
-                for j in range(0, 45):
-                    self.__tmp[self.keys[j]].append(result[i][j])
-
-            #convert list to numpy array
-            for j in range(0, 45):
-                self.data[self.keys[j]] = numpy.array(self.__tmp[self.keys[j]])
 
         except IOError:
             self.noProblem = False
