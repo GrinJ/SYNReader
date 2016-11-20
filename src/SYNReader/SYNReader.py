@@ -1,5 +1,6 @@
 from collections import defaultdict
 import re
+import numpy
 
 class SYNReader:
 
@@ -29,7 +30,9 @@ class SYNReader:
 
             #Create custom dict to save the data
             result = defaultdict(list)
-            self.data = defaultdict(list)
+            #self.data = defaultdict(list)
+            self.data = {}
+            self.__tmp = defaultdict(list)
 
             #For loop counter
             self.counter = 0
@@ -55,7 +58,11 @@ class SYNReader:
             #Work with the data
             for i in range(0, result.__len__()):
                 for j in range(0, 45):
-                    self.data[self.keys[j]].append(result[i][j])
+                    self.__tmp[self.keys[j]].append(result[i][j])
+
+            #convert list to numpy array
+            for j in range(0, 45):
+                self.data[self.keys[j]] = numpy.array(self.__tmp[self.keys[j]])
 
         except IOError:
             self.noProblem = False
