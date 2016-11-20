@@ -1,6 +1,4 @@
-from collections import defaultdict
 import re
-import numpy
 
 class SYNReader:
 
@@ -31,9 +29,9 @@ class SYNReader:
             #Create custom dict to save the data
             self.data = {}
 
-            #Create empty numpy arrays
+            #Create empty tuples
             for num, key in self.keys.items():
-                self.data[key] = numpy.array([])
+                self.data[key] = []
 
             #For loop counter
             self.counter = 0
@@ -47,7 +45,7 @@ class SYNReader:
                     count = 0
                     for subkey in value:
                         if subkey != "":
-                            self.data[self.keys[count]] = numpy.append(self.data[self.keys[count]], float(subkey))
+                            self.data[self.keys[count]].append(float(subkey))
                             count += 1
                     self.counter += 1
 
