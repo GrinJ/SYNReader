@@ -124,3 +124,33 @@ class SYNReader:
     #Returns the array bt given key
     def __getitem__(self, item):
         return self.data[item]
+
+    def inArea(self, minLat, maxLat, minLon, maxLon):
+
+        """
+        Returns an array of indices of points that are in the given area
+        :param minLat: The minimum latitude value
+        :type minLat: float
+        :param maxLat: The maximum latitude value
+        :type maxLat: float
+        :param minLon: The minimum longitude value
+        :type minLon: float
+        :param maxLon: The maximum longitude value
+        :type maxLon: float
+        :return: Array of indices
+        :rtype: tuple
+        """
+
+        #Value that will be returned
+        tmp =[]
+
+        # Loop through all the station data
+        for st in range(0, self.counter):
+
+            #Add index if point is in area
+            if self.data["lat"][st] >= minLat and self.data["lat"][st] <= maxLat and \
+                self.data["lon"][st] >= minLon and self.data["lon"][st] <= maxLon:
+                tmp.append(st)
+
+        #Return the tuple with indecies
+        return tmp
