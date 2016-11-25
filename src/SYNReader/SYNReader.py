@@ -41,7 +41,7 @@ class SYNReader:
                 value = re.findall(r"[-+]?\d*\.\d+|\d+", key)
                 if float(value[0]) == 22222.0:
                     break
-                if value.__len__() == 46:
+                if len(value) == 46:
                     count = 0
                     for subkey in value:
                         if subkey != "":
