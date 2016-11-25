@@ -39,15 +39,16 @@ class SYNReader:
             #Read the data
             for key in values:
                 value = re.findall(r"[-+]?\d*\.\d+|\d+", key)
-                if float(value[0]) == 22222.0:
-                    break
-                if len(value) == 46:
-                    count = 0
-                    for subkey in value:
-                        if subkey != "":
-                            self.data[self.keys[count]].append(float(subkey))
-                            count += 1
-                    self.counter += 1
+                if len(value) > 0:
+                    if float(value[0]) == 22222.0:
+                        break
+                    if len(value) == 46:
+                        count = 0
+                        for subkey in value:
+                            if subkey != "":
+                                self.data[self.keys[count]].append(float(subkey))
+                                count += 1
+                        self.counter += 1
 
             #If file was empty
             if self.counter == 0:
