@@ -57,11 +57,17 @@ class SYNReader:
         except IOError:
             self.noProblem = False
 
-    def convertData(self):
+    def convertData(self, keys=[]):
         """
         Converts data values from the SYN specification to normal values
         """
-        for key, val in self.data.items():
+
+        #Check if given value was empty
+        if keys == []:
+            keys = self.keys
+
+        #Loop throug all data
+        for key in keys:
             for num in range(0, self.data[key].__len__()):
                 if self.data[key][num] != -9999.0:
                     self.data[key][num] = self.__convert(key, self.data[key][num])
