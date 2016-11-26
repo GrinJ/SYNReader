@@ -13,10 +13,9 @@ class SYNReader:
         """
 
         #Dictionary with keys
-        self.keys = {0: "dist_num", 1: "st_num", 2: "lat", 3: "lon", 4: "heigth", 5: "PR", 6: "HH", 7: "Pz", 8: "P0", 9: "t",
-         10: "td", 11: "dd", 12: "ff", 13: "L", 14: "q", 15: "VV", 16: "SS", 17: "N", 18: "Nh", 19: "Cl", 20: "Cm", 21: "Ch", 22: "hh",
-         23: "ww", 24: "W", 25: "t_min", 26: "t_max", 27: "tgm", 28: "R6", 29: "R12", 30: "R24", 31: "tg", 32: "hhs", 33: "mv",
-         34: "E4", 35: "E1", 36: "E3", 37: "Sp1", 38: "Sp2", 39: "Sp3", 40: "P01", 41: "P0gk", 42: "P0p", 43: "t_gk", 44: "t_p", 45: "t_0"}
+        self.keys = ["dist_num", "st_num", "lat", "lon", "heigth", "PR", "HH", "Pz", "P0", "t", "td", "dd", "ff", "L",
+                     "q", "VV", "SS", "N", "Nh", "Cl", "Cm", "Ch", "hh", "ww", "W", "t_min", "t_max", "tgm", "R6", "R12",
+                     "R24", "tg", "hhs", "mv", "E4", "E1", "E3", "Sp1", "Sp2", "Sp3", "P01", "P0gk", "P0p", "t_gk", "t_p", "t_0"]
 
         #Flag of successful file open
         self.noProblem = True
@@ -30,7 +29,7 @@ class SYNReader:
             self.data = {}
 
             #Create empty tuples
-            for num, key in self.keys.items():
+            for key in self.keys:
                 self.data[key] = []
 
             #For loop counter
